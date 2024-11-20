@@ -4,23 +4,23 @@ import { getAuth } from "firebase/auth";
 
 const HomePage = () => {
   // ******* usestate part to store and update the state
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState();
 
   // ******* Firebas variable
   const auth = getAuth();
   // ******* function par
   useEffect(() => {
-    const user = auth.currentUser;
-    if (user !== null) {
-      // The user object has basic properties such as display name, email, etc.
-      setUser(user);
-      // The user's ID, unique to the Firebase project. Do NOT use
-      // this value to authenticate with your backend server, if
-      // you have one. Use User.getToken() instead.
-      const uid = user.uid;
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      // ******* Save user to local storage
+      localStorage.setItem("user", JSON.stringify(currentUser));
     }
-  }, []);
-
+    // ******* Retrieve user from local storage and update state
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser)); // Parse JSON string to object
+    }
+  }, []); // Runs only on component mount
 
   return (
     <>
@@ -28,14 +28,14 @@ const HomePage = () => {
         <div className="profile">
           <div>
             <div className="profilePicture">
-              <img src="" alt="" />
+              <img src= {user?.photoURL || "No user to display" } alt= {user?.displayName || "No name to display"} />
             </div>
             <div className="username">
-              <p> {user?.displayName  || "user Name"} </p>
+              <p>{user?.displayName || "Guest"}</p>
             </div>
           </div>
           <div>
-            <p> </p>
+            <p>{user?.email || "No email address"} </p>
           </div>
         </div>
       </section>

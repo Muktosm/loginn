@@ -12,12 +12,14 @@ import app from "./firebase.config";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./components/homePage/HomePage";
+import Test from "./components/testt/Test";
 
 function App() {
   const myRoute = createBrowserRouter(
     createRoutesFromElements(
       <Route>
         <Route path="/" element={<HomePage />} />
+        <Route path="/test" element={<Test />} />
         <Route path="/logIn" element={<Login />} />
         <Route path="/singup" element={<Singup />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
