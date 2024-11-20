@@ -1,0 +1,49 @@
+.login {
+  @apply w-full min-h-screen flex items-center justify-center;
+  .container {
+    @apply flex items-center justify-center;
+    .form {
+      @apply w-[430px] rounded-[10px] bg-[#FFF] px-[50px] pt-[38px] pb-[29px];
+      .formHeading {
+        @apply font-DM_sans font-bold text-[42px] leading-[52px] text-[#1E0E62] tracking-[.4px] text-center;
+      }
+      .input {
+        @apply mt-[45px] mb-[42px] w-full flex flex-col gap-[20px];
+        .email,
+        .password, .userName {
+          @apply border-[2px] border-[#EBEAED] py-[12px] rounded-[100px] pl-[24px] focus-within:border-[#4aa8e7a1];
+          svg {
+            @apply text-[rgba(21,20,57,0.40)] text-[20px];
+          }
+        }
+        .email,
+        .password , .userName{
+          input {
+            @apply w-[90%] outline-none font-DM_sans font-medium text-[18px] leading-[26px]  text-[rgba(21,20,57,0.40)];
+          }
+        }
+      }
+      .terms {
+        @apply w-full ml-[5px] flex items-center gap-[10px] font-DM_sans font-normal text-[16px] leading-[26px] text-[#15143966];
+        input {
+          @apply font-DM_sans;
+        }
+      }
+      .btn {
+        @apply w-full bg-[#25DAC5] py-[12px] rounded-[100px] font-DM_sans font-medium text-[18px] leading-[26px] text-[#FFFFFF] flex items-center justify-center mt-[24px] mb-[76px] cursor-pointer;
+      }
+      .singUp {
+        @apply font-DM_sans font-medium text-[18px] leading-[26px] text-[#15143966] mx-[25px];
+        a {
+          @apply text-[#25DAC5];
+        }
+      }
+      .forgotPassword{
+        @apply font-DM_sans font-normal text-[16px] leading-[26px] text-[#15143966];
+        a{
+          @apply text-blue-400;
+        }
+      }
+    }
+  }
+}
